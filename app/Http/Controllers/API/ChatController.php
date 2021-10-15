@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chat;
+use App\Models\User;
 
 class ChatController extends Controller
 {
@@ -26,7 +27,16 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        return Chat::Create($request->all());
+        
+        $chat = Chat::create([
+            'name' => $request->name
+        ]);
+
+        collect($request->users)->each(function($user) use($chat) {
+            User::find($user)->chats()->attach($chat);
+        });
+
+        return $chat;
     }
 
     /**
