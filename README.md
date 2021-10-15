@@ -6,13 +6,18 @@ This api is built using Laravel ([Laravel README below](#laravel-readme)) for th
 
 Clone this repo - cd into the project directory and run `composer install`. 
 
-Run `php artisan serve`.
+This project uses Homestead to run locally. If you don't have Vagrant set up, the docs are [here](https://laravel.com/docs/8.x/homestead).
+
+Update the .env DB_DATABASE to `homestead` and, if you don't have lots of RAM to spare, reduce the memory in the Homestead.yaml to 512. 
+
+Run vagrant up.
 
 ## The Project 
 
-I started by drawing out a database diagram. This can be found [here](https://dbdiagram.io/d/6167180d940c4c4eec93ffeb).
+I started by drawing out a database diagram. This can be found [here](https://dbdiagram.io/d/6167180d940c4c4eec93ffeb). This provided me with the basis for my initial migrations. 
 
-This provided me with the basis for my initial migrations.
+A trello board can be found [here](https://trello.com/b/SkJIkD0U/team-messenger) with the setps I took (and some steps for stretch goals that I may or may not complete). 
+
 
 ## Laravel README
 
