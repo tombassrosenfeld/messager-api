@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Chat;
 
 class UserController extends Controller
 {
@@ -17,6 +18,12 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
+    }
+
+    public function getUserChats(User $user)
+    {   
+        $chats = $user->chats;
+        return $chats;
     }
 
     /**
@@ -33,7 +40,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
