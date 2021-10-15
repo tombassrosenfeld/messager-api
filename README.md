@@ -18,6 +18,22 @@ I started by drawing out a database diagram. This can be found [here](https://db
 
 A trello board can be found [here](https://trello.com/b/SkJIkD0U/team-messenger) with the setps I took (and some steps for stretch goals that I may or may not complete). 
 
+## Endpoints
+
+The following will be necessary (question marks denote stretch/unnecessary for basic functionality)
+
+post:
+
+- chat
+- message
+- user?
+
+get:
+
+- user chats
+- chat messages
+- users
+
 
 ## Laravel README
 

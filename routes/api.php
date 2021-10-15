@@ -22,12 +22,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'users'], function() {
     Route::get('', [UserController::class, 'index']);
-    Route::get('{user}', [UserController::class, 'show']);
+    Route::group(['prefix' => '{user}'], function() {
+        Route::get('', [UserController::class, 'show']);
+        Route::get('/chats', [UserController::class, 'getUserChats']);
+    });
 });
 
 Route::group(['prefix' => 'chats'], function() {
     Route::get('', [ChatController::class, 'index']);
-    Route::get('{chat}', [ChatController::class, 'show']);
+    Route::post('', [ChatController::class, 'store']);
 });
 
 Route::group(['prefix' => 'messages'], function() {
