@@ -1,3 +1,21 @@
+# Team Messenger API
+
+This api is built using Laravel ([Laravel README below](#laravel-readme)) for the purpose of serving an API to be consumed by a React SPA. TODO: link repo
+
+## Set up
+
+Clone this repo - cd into the project directory and run `composer install`. 
+
+Run `php artisan serve`.
+
+## The Project 
+
+I started by drawing out a database diagram. This can be found [here](https://dbdiagram.io/d/6167180d940c4c4eec93ffeb).
+
+This provided me with the basis for my initial migrations.
+
+## Laravel README
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
