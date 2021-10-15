@@ -62,4 +62,29 @@ class ChatController extends Controller
     {
         //
     }
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  array $chats
+     * @return array
+     */
+    public static function formatChats($chats)
+    {   
+        // sort chats by creation
+        $chats = $chats->sortBy('created_at');
+        
+        // for each chat, take the last 20 messages
+        $messages = $chats->flatMap(function ($chat) {
+            return $chat->messages->sortBy('created_at')->take(20);
+        });
+       
+        // return a nice 2D array of chats and their associated messages
+        $response = [
+            "chats" => $chats->all(),
+            "messages" => $messages->all()
+        ];
+
+        return $response;
+    }
 }

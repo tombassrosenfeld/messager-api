@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Chat;
+use App\Http\Controllers\API\ChatController;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
     public function getUserChats(User $user)
     {   
         $chats = $user->chats;
-        return $chats;
+        return ChatController::formatChats($chats);
     }
 
     /**
