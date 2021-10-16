@@ -4,9 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\User;
-use App\Models\Chat;
 use App\Http\Controllers\API\ChatController;
 
 class UserController extends Controller
@@ -70,5 +68,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getRandomUsers()
+    {
+        return $users = User::all()->random(3)->all();
     }
 }

@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'users'], function() {
     Route::get('', [UserController::class, 'index']);
+    Route::get('/random', [UserController::class, 'getRandomUsers']);
     Route::group(['prefix' => '{user}'], function() {
         Route::get('', [UserController::class, 'show']);
         Route::get('/chats', [UserController::class, 'getUserChats']);
