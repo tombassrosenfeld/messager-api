@@ -32,8 +32,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $data = $request->all();
+        // horrible insecure hack until Auth is implemented
+        $data["password"] = "password";
+        return User::create($data);
     }
 
     /**
