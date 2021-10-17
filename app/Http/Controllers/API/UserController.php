@@ -73,6 +73,11 @@ class UserController extends Controller
         //
     }
 
+    public function getUserByEmail(Request $request)
+    {   
+        return User::all()->firstWhere('email', $request->email);
+    }
+
     public function getRandomUsers()
     {
         return $users = User::all()->random(3)->all();

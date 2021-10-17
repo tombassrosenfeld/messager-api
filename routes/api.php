@@ -21,9 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'users'], function() {
-    Route::get('', [UserController::class, 'index']);
     Route::post('', [UserController::class, 'store']);
+    Route::get('', [UserController::class, 'index']);
     Route::get('/random', [UserController::class, 'getRandomUsers']);
+    Route::post('/login', [UserController::class, 'getUserByEmail']);
     Route::group(['prefix' => '{user}'], function() {
         Route::get('', [UserController::class, 'show']);
         Route::get('/chats', [UserController::class, 'getUserChats']);
