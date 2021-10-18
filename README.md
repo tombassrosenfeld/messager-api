@@ -12,7 +12,7 @@ Update the .env DB_DATABASE to `homestead` and, if you don't have lots of RAM to
 
 Run vagrant up.
 
-Run `php artisan db:seed`. This will create 10 users, 20 chats and 200 messages. Want more? Run it again.
+Run `php artisan db:seed`. This will create 10 users, 20 chats and 300 messages. Want more? Run it again.
 
 ## The Project
 
@@ -24,23 +24,33 @@ A trello board can be found [here](https://trello.com/b/SkJIkD0U/team-messenger)
 
 The following will be necessary (question marks denote stretch/unnecessary for basic functionality)
 
-post:
+setters:
 
 - chat
 - message
 - user?
 - add user to existing chat?
 
-get:
+getters:
 
 - user chats
 - chat messages
 - users
+- user
 
 delete:
 
 - message?
 - chat?
+
+## To Do
+
+- Expand test coverage
+- Improve validation including enforcing a unique chat name. 
+- Many other things!
+
+I'd love to have implimented Pusher for push notifications and Passport for authorisation. I had to use a hack to add a password for each new user as I didn't want to remove the passwords from the schema. I plan to keep working on this project moving forward as I've really enjoyed it. 
+
 
 ## Laravel README
 
