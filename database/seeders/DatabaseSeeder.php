@@ -16,7 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        $newUsers = User::factory(10)->create();
+
+        // if this is not the first round of seeding, don't create the team chat again
+        $teamChat = Chat::firstOrCreate([
+            'name' => 'Team Chat'
+        ]);
+
+        // if this is not the first round of seeding, only attach the new users
+        $teamChat->users()->attach($newUsers->pluck('id')->all());
+
         Chat::factory(20)->create();
 
         // Populate the pivot table
@@ -28,7 +37,7 @@ class DatabaseSeeder extends Seeder
             ); 
         });
 
-        Message::factory(200)->create();
+        Message::factory(300)->create();
 
     }
 }
