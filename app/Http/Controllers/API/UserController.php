@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Chat;
 use App\Http\Controllers\API\ChatController;
 
 class UserController extends Controller
@@ -36,7 +37,14 @@ class UserController extends Controller
         $data = $request->all();
         // horrible insecure hack until Auth is implemented
         $data["password"] = "password";
-        return User::create($data);
+        
+        $user = User::create($data);
+
+        $teamChat = Chat::all()->firstWhere('name', "Team Chat")->id;
+
+        $user->chats()->attach($teamChat);
+
+        return $user;
     }
 
     /**
